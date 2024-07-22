@@ -1,0 +1,124 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 65vh;
+    background-color: #f8f9fa;
+    padding: 40px;
+}
+
+.main-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    max-width: 800px;
+    height: auto;
+}
+
+.picture-container {
+    position: relative;
+    width: 30%;
+    margin-right: 20px;
+}
+
+.picture-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.steps {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.step-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.step {
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.step-container .step-text {
+    color: white;
+    font-weight: normal;
+}
+
+.step-container.active .step {
+    background-color: #0056b3;
+}
+
+.form-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 70%;
+    align-items: center;
+}
+
+.card {
+    margin: 0;
+    border: none;
+}
+
+.form-step {
+    display: none;
+    justify-items: center;
+}
+
+.form-step.active {
+    display: block;
+}
+
+.btn {
+    margin-top: 10px;
+    color: rgb(255, 255, 255); /* Change button text color to black */
+    transition: background-color 0.3s, color 0.3s; /* Button hover effects */
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+    }
+
+    .picture-container {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .steps {
+        flex-direction:
+    }
+

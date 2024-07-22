@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRATION FORM</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container-center">
+        <div class="main-container">
+            <div class="picture-container">
+                <img src="main.svg" alt="main" class="img-fluid">
+                <div class="steps">
+                    <div class="step-container active" data-step="1">
+                        <div class="step">1</div>
+                        <span class="step-text">Step One: Your Info</span>
+                    </div>
+                    <div class="step-container" data-step="2">
+                        <div class="step">2</div>
+                        <span class="step-text">Step Two: Select Plan</span>
+                    </div>
+                    <div class="step-container" data-step="3">
+                        <div class="step">3</div>
+                        <span class="step-text">Step Three: Add-ons</span>
+                    </div>
+                    <div class="step-container" data-step="4">
+                        <div class="step">4</div>
+                        <span class="step-text">Step Four: Summary</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-container">
+                <div class="card w-100">
+                    <div class="card-body">
+                        <form id="multiStepForm">
+                            <!-- Step 1 -->
+                            <div id="step-1" class="form-step active">
+                                <h3>Personal Info</h3>
+                                <h6>Please provide your Personal Info</h6>
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" required>
+                                </div>
+                                <button type="button" class="btn btn-primary next-step" onclick="showStep(2);">Next Step</button>
+                            </div>
+                            <!-- Step 2 -->
+                            <div id="step-2" class="form-step d-none">
+                                <h3>Select Your Plan</h3>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4 border border-primary bg-light rounded p-3">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="plan" value="arcade" required> Arcade ($9/mo)
+                                            <img src="icon-arcade.svg">
+                                        </label>
+                                    </div>
+                                    <div class="form-group col-md-4 border border-primary bg-light rounded p-3">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="plan" value="advanced" required> Advanced ($12/mo)
+                                            <img src="icon-advanced.svg">
+                                        </label>
+                                    </div>
+                                    <div class="form-group col-md-4 border border-primary bg-light rounded p-3">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="plan" value="pro" required> Pro ($15/mo)
+                                            <img src="icon-pro.svg">
+                                        </label>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-secondary prev-step" onclick="showStep(1);">Go Back</button>
+                                <button type="button" class="btn btn-primary next-step" onclick="showStep(3);">Next Step</button>
+                            </div>
+                            <!-- Step 3 -->
+                            <div id="step-3" class="form-step d-none">
+                                <h3>Pick Add-ons</h3>
+                                <div class="form-group border border-primary bg-light rounded p-3">
+                                    <label>
+                                        <input type="checkbox" name="addons" value="online-service"> Online Service ($1/mo)
+                                    </label>
+                                </div>
+                                <div class="form-group border border-primary bg-light rounded p-3">
+                                    <label>
+                                        <input type="checkbox" name="addons" value="larger-storage"> Larger Storage ($2/mo)
+                                    </label>
+                                </div>
+                                <div class="form-group border border-primary bg-light rounded p-3">
+                                    <label>
+                                        <input type="checkbox" name="addons" value="customizable-profile"> Customizable Profile ($2/mo)
+                                    </label>
+                                </div>
+                                <button type="button" class="btn btn-secondary prev-step" onclick="showStep(2);">Go Back</button>
+                                <button type="button" class="btn btn-primary next-step" onclick="showStep(4);">Next Step</button>
+                            </div>
+                            
+                            <div id="step-4" class="form-step d-none">
+                                <img src="icon-thank-you.svg">
+                                <h3>Summary</h3>
+                                <p>Review your choices and submit the form.</p>
+                                <button type="button" class="btn btn-secondary prev-step" onclick="showStep(3);">Go Back</button>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script>
+        function showStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.form-step').forEach((step) => {
+                step.classList.add('d-none');
+                step.classList.remove('active');
+            });
+            // Show the selected step
+            document.getElementById(`step-${step}`).classList.remove('d-none');
+            document.getElementById(`step-${step}`).classList.add('active');
+            // Update active step in the sidebar
+            document.querySelectorAll('.step-container').forEach((el) => {
+                el.classList.remove('active');
+                if (parseInt(el.getAttribute('data-step')) === step) {
+                    el.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
